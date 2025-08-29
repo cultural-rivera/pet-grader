@@ -1,0 +1,82 @@
+<!doctype html>
+<p>Camera OMR/OCR · Works on Android & iPhone</p>
+</header>
+
+
+<section class="card">
+<h2>1) Load Answer Key</h2>
+<details open>
+<summary>Import from CSV (recommended)</summary>
+<p>CSV format: two columns — <code>Question,Answer</code>. Example in <code>key-format.csv</code>.</p>
+<input id="keyFile" type="file" accept=".csv" />
+<button id="useSampleKey">Use sample key</button>
+<div id="keyPreview" class="scroll"></div>
+</details>
+
+
+<details>
+<summary>Or paste from Google Sheets</summary>
+<textarea id="keyPaste" rows="6" placeholder="Question,Answer\n1,B\n2,C\n...\n27,house\n..."></textarea>
+<button id="parsePastedKey">Parse Pasted Key</button>
+</details>
+</section>
+
+
+<section class="card">
+<h2>2) Capture Answer Sheet</h2>
+<div class="camera">
+<video id="video" playsinline></video>
+<canvas id="overlay"></canvas>
+</div>
+<div class="row">
+<label>
+<input type="checkbox" id="useBackCam" checked /> Use back camera
+</label>
+<button id="snap">Capture</button>
+<button id="loadPhoto">Upload Photo</button>
+<input type="file" id="photoFile" accept="image/*" hidden />
+</div>
+<canvas id="capture" class="hidden"></canvas>
+<p class="hint">Tip: fill the frame, avoid glare, keep the sheet flat. Use the printable template provided.</p>
+</section>
+
+
+<section class="card">
+<h2>3) Process & Grade</h2>
+<div class="row">
+<button id="processBtn">Process (OMR + OCR)</button>
+<button id="downloadCsv" disabled>Download CSV</button>
+</div>
+<div id="results" class="scroll"></div>
+</section>
+
+
+<section class="card">
+<h2>Printable Answer Sheet</h2>
+<p>Print the official-like template we provide to keep positions consistent.</p>
+<a href="template/answer-sheet.html" target="_blank">Open printable PET Reading sheet</a>
+</section>
+
+
+<footer>
+<small>All processing runs in your browser. Libraries: OpenCV.js and Tesseract.js</small>
+</footer>
+
+
+<!-- Libraries from CDN -->
+<script src="https://docs.opencv.org/4.x/opencv.js" defer></script>
+<script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js" defer></script>
+
+
+<!-- App scripts -->
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
+</script>
+<link rel="manifest" href="manifest.json">
+<script src="omr.js" defer></script>
+<script src="ocr.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
