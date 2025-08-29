@@ -1,0 +1,15 @@
+{
+"imageWidth": 2480,
+"imageHeight": 3508,
+"parts": {
+"1": {"qStart": 1, "qEnd": 5, "choices": ["A","B","C"], "grid": {"x": 220, "y": 420, "dx": 220, "dy": 120}},
+"2": {"qStart": 6, "qEnd": 10, "choices": ["A","B","C","D","E","F","G","H"], "grid": {"x": 220, "y": 1120, "dx": 120, "dy": 120}},
+"3": {"qStart": 11, "qEnd": 15, "choices": ["A","B","C","D"], "grid": {"x": 220, "y": 1820, "dx": 160, "dy": 120}},
+"4": {"qStart": 16, "qEnd": 21, "choices": ["A","B","C","D","E","F","G","H"], "grid": {"x": 220, "y": 2520, "dx": 120, "dy": 120}},
+"5": {"qStart": 22, "qEnd": 26, "choices": ["A","B","C","D"], "grid": {"x": 1500, "y": 420, "dx": 160, "dy": 120}},
+"6": {"qStart": 27, "qEnd": 32, "choices": [], "textBoxes": {"x": 1500, "y": 1120, "dx": 600, "dy": 120, "gap": 120}}
+},
+"bubble": {"r": 28, "threshold": 0.62},
+"ocr": {"psm": 7, "lang": "eng", "minConfidence": 0.55},
+"manualReview": {"minBubbleMargin": 0.12}
+}
